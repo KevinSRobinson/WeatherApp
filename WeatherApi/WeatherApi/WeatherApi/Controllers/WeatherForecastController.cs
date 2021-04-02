@@ -1,12 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using WeatherApi.Services;
 
 namespace WeatherApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
+    [Route("api/WeatherForecast")]
     public class WeatherForecastController : ControllerBase
     {
 
@@ -18,8 +22,8 @@ namespace WeatherApi.Controllers
             _logger = logger;
             _weatherService = weatherService;
         }
-
-        [HttpGet]
+        
+        [HttpGet("daily")]
         public async Task<string> GetWeather()
         {
             var weather = await _weatherService.GetWeatherAsync();
