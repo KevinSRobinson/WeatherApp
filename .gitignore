@@ -1,7 +1,5 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/WeatherApi/WeatherApi/.vs/WeatherApi/v16
-/obj
-/bin/Debug/
+WeatherApp/node_modules/
+WeatherApi/WeatherApi/WeatherApp.Data/obj/
+WeatherApi/WeatherApi/WeatherApi/bin/
+WeatherApi/WeatherApi/WeatherApp.Data/bin/
+WeatherApi/WeatherApi/.vs/
