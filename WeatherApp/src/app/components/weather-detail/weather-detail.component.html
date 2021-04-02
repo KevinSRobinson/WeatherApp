@@ -1,0 +1,13 @@
+
+
+
+
+<div class="card" style="width: 18rem;">
+    <app-weather-state [state]="detail.weather_state_abbr"></app-weather-state>
+    <div class="card-body">
+      <p class="card-text">{{detail.weather_state_name}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{detail.applicable_date | date:'mediumDate'}}</li>
+      </ul>
+  </div>
