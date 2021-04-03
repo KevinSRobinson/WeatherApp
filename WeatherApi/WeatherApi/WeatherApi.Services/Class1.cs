@@ -1,26 +1,58 @@
 ﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace WeatherApi.Services
 {
-    public interface IWeatherService
+    public class ConsolidatedWeather
     {
-        Task<string> GetWeatherAsync();
+        public object id { get; set; }
+        public string weather_state_name { get; set; }
+        public string weather_state_abbr { get; set; }
+        public string wind_direction_compass { get; set; }
+        public DateTime created { get; set; }
+        public string applicable_date { get; set; }
+        public double min_temp { get; set; }
+        public double max_temp { get; set; }
+        public double the_temp { get; set; }
+        public double wind_speed { get; set; }
+        public double wind_direction { get; set; }
+        public double air_pressure { get; set; }
+        public int humidity { get; set; }
+        public double visibility { get; set; }
+        public int predictability { get; set; }
     }
 
-    public class WeatherService : IWeatherService
+    public class Parent
     {
-        public async Task<string> GetWeatherAsync()
-        {
-            using (var httpClient = new HttpClient())
-            {
-                const string apiurl = "https://www.metaweather.com/api/location/44418/";
-
-                var response = await httpClient.GetAsync(apiurl);
-
-                return await response.Content.ReadAsStringAsync();
-            }
-        }
+        public string title { get; set; }
+        public string location_type { get; set; }
+        public int woeid { get; set; }
+        public string latt_long { get; set; }
     }
+
+    public class Source
+    {
+        public string title { get; set; }
+        public string slug { get; set; }
+        public string url { get; set; }
+        public int crawl_rate { get; set; }
+    }
+
+    public class Root
+    {
+        public List<ConsolidatedWeather> consolidated_weather { get; set; }
+        public DateTime time { get; set; }
+        public DateTime sun_rise { get; set; }
+        public DateTime sun_set { get; set; }
+        public string timezone_name { get; set; }
+        public Parent parent { get; set; }
+        public List<Source> sources { get; set; }
+        public string title { get; set; }
+        public string location_type { get; set; }
+        public int woeid { get; set; }
+        public string latt_long { get; set; }
+        public string timezone { get; set; }
+    }
+
+
 }

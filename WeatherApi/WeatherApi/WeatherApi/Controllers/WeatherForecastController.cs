@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -24,12 +25,12 @@ namespace WeatherApi.Controllers
         }
         
         [HttpGet("daily")]
-        public async Task<string> GetWeather()
+        [HttpPost, ProducesResponseType(typeof(Root), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetWeather()
         {
             var weather = await _weatherService.GetWeatherAsync();
 
-            return weather;
+            return Ok(weather);
         }
-        
     }
 }

@@ -45,8 +45,7 @@ namespace WeatherApi.Controllers
                     .FirstOrDefaultAsync(u => u.NormalizedUserName == user.UserName.ToUpper());
 
                 var token = GenerateJwtToken(appUser);
-                //var userToReturn = _mapper.Map<UserForDetailsDto>(appUser);
-                //var token = GenerateJwtToken(appUser);
+             
                 return Ok(new
                 {
                     token,

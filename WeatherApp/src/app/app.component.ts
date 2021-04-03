@@ -16,11 +16,11 @@ export class AppComponent {
   }
 
   loadData(){
-    const api = "https://localhost:44337/weatherforecast";
+    // const api = "https://localhost:44337/weatherforecast";
 
-    this.httpClient.get(api).subscribe((response: any) => {
-        this.days = response.consolidated_weather;
-    });
+    // this.httpClient.get(api).subscribe((response: any) => {
+    //     this.days = response.consolidated_weather;
+    // });
   }
   login() {
     this.router.navigateByUrl('login')
