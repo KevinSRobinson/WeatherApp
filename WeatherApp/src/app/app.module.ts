@@ -17,6 +17,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from './auth/auth.guard';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -57,12 +58,14 @@ export const INIT_API_CONFIGURATION: Provider = {
     NgxSpinnerModule
   ],
   providers: [
+    AuthGuard ,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
     },
-    INIT_API_CONFIGURATION
+    INIT_API_CONFIGURATION,
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

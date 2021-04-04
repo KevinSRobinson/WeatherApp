@@ -37,11 +37,9 @@ export class AuthService {
       }
       ));
   }
-  // register(user: User) {
-  //   return this.http.post(this.baseUrl + 'Register', user);
-  // }
   loggedIn() {
     const token = localStorage.getItem('token');
+    debugger;
     return !this.jwtHelper.isTokenExpired(token);
   }
   logOut() {
