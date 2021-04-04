@@ -1,6 +1,5 @@
-import { APP_INITIALIZER, NgModule, Provider } from '@angular/core';
+import { APP_INITIALIZER, NgModule, Provider, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -15,7 +14,9 @@ import { TokenInterceptor } from './token.interceptor';
 import { ApiModule } from './api-module';
 import { ApiConfiguration } from 'swagger-api/api-configuration';
 import { AlertModule } from 'ngx-bootstrap/alert';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -41,16 +42,19 @@ export const INIT_API_CONFIGURATION: Provider = {
     WeatherDetailComponent,
     WeatherStateComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     ApiModule.forRoot({ rootUrl: 'http://localhost:999' }),
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [
     {
@@ -60,6 +64,7 @@ export const INIT_API_CONFIGURATION: Provider = {
     },
     INIT_API_CONFIGURATION
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
