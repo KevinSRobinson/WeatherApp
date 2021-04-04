@@ -7,7 +7,7 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
-import { Root } from '../models/root';
+import { Forecast } from '../models/forecast';
 @Injectable({
   providedIn: 'root',
 })
@@ -25,7 +25,7 @@ class WeatherForecastService extends __BaseService {
   /**
    * @return Success
    */
-  getApiWeatherForecastDailyResponse(): __Observable<__StrictHttpResponse<Root>> {
+  getApiWeatherForecastDailyResponse(): __Observable<__StrictHttpResponse<Forecast>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -42,23 +42,23 @@ class WeatherForecastService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Root>;
+        return _r as __StrictHttpResponse<Forecast>;
       })
     );
   }
   /**
    * @return Success
    */
-  getApiWeatherForecastDaily(): __Observable<Root> {
+  getApiWeatherForecastDaily(): __Observable<Forecast> {
     return this.getApiWeatherForecastDailyResponse().pipe(
-      __map(_r => _r.body as Root)
+      __map(_r => _r.body as Forecast)
     );
   }
 
   /**
    * @return Success
    */
-  postApiWeatherForecastResponse(): __Observable<__StrictHttpResponse<Root>> {
+  postApiWeatherForecastResponse(): __Observable<__StrictHttpResponse<Forecast>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
@@ -75,16 +75,16 @@ class WeatherForecastService extends __BaseService {
     return this.http.request<any>(req).pipe(
       __filter(_r => _r instanceof HttpResponse),
       __map((_r) => {
-        return _r as __StrictHttpResponse<Root>;
+        return _r as __StrictHttpResponse<Forecast>;
       })
     );
   }
   /**
    * @return Success
    */
-  postApiWeatherForecast(): __Observable<Root> {
+  postApiWeatherForecast(): __Observable<Forecast> {
     return this.postApiWeatherForecastResponse().pipe(
-      __map(_r => _r.body as Root)
+      __map(_r => _r.body as Forecast)
     );
   }
 }

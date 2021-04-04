@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './token.interceptor';
 import { ApiModule } from './api-module';
 import { ApiConfiguration } from 'swagger-api/api-configuration';
+import { AlertModule } from 'ngx-bootstrap/alert';
+
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -47,7 +49,8 @@ export const INIT_API_CONFIGURATION: Provider = {
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AlertModule.forRoot()
   ],
   providers: [
     {

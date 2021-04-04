@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ConsolidatedWeather } from 'src/app/models/consolidate-weather';
+import { DailyForecast } from 'swagger-api/models';
 
 @Component({
   selector: 'app-weather-detail',
@@ -7,7 +7,7 @@ import { ConsolidatedWeather } from 'src/app/models/consolidate-weather';
   styleUrls: ['./weather-detail.component.scss']
 })
 export class WeatherDetailComponent implements OnInit {
-  @Input() detail: ConsolidatedWeather;
+  @Input() detail: DailyForecast;
   constructor() { }
 
   ngOnInit() {

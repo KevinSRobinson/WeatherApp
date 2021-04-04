@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using WeatherApi.Services;
+using WeatherApi.Services.MetaWeather;
+using WeatherApi.Services.MetaWeather.Models;
+using WeatherApi.Services.Models;
 
 namespace WeatherApi.Controllers
 {
@@ -25,7 +28,7 @@ namespace WeatherApi.Controllers
         }
         
         [HttpGet("daily")]
-        [HttpPost, ProducesResponseType(typeof(Root), (int)HttpStatusCode.OK)]
+        [HttpPost, ProducesResponseType(typeof(Forecast), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetWeather()
         {
             var weather = await _weatherService.GetWeatherAsync();

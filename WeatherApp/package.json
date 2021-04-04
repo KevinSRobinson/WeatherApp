@@ -1,6 +1,6 @@
 {
   "name": "weather-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201",
@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "swagger": "ng-swagger-gen -c ng-swagger-gen.json"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~11.2.7",
     "@angular/common": "~11.2.7",

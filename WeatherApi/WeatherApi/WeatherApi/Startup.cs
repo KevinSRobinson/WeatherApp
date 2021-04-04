@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WeatherApi.Extensions;
 using WeatherApi.Services;
+using WeatherApi.Services.MetaWeather;
 
 namespace WeatherApi
 {
@@ -32,7 +33,9 @@ namespace WeatherApi
 
             services.ConfigureIdentity(Configuration.GetSection("Appsettings:Token").Value);
 
-            services.AddScoped<IWeatherService, WeatherService>();
+            //services.AddScoped<IWeatherService, new MetaWeatherService("")();
+
+            services.AddScoped<IWeatherService>(x => new MetaWeatherService(Configuration.GetSection("Appsettings:MetaWeatherApi").Value));
 
             services.AddMvc(options =>
             {
