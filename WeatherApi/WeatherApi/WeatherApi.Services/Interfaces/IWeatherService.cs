@@ -5,6 +5,6 @@ namespace WeatherApi.Services.Interfaces
 {
     public interface IWeatherService
     {
-        Task<Forecast> GetWeatherAsync();
+        Task<Forecast> GetWeatherAsync(int location);
     }
 }

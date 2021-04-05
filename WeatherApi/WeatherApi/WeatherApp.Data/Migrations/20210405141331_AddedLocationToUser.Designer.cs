@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeatherApp.Data;
 
 namespace WeatherApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210405141331_AddedLocationToUser")]
+    partial class AddedLocationToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,6 +171,9 @@ namespace WeatherApp.Data.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("LocationId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -204,6 +209,8 @@ namespace WeatherApp.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LocationId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -228,14 +235,7 @@ namespace WeatherApp.Data.Migrations
                     b.Property<string>("LocationName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique()
-                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("Locations");
                 });
@@ -291,17 +291,12 @@ namespace WeatherApp.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WeatherApp.Data.Location", b =>
-                {
-                    b.HasOne("WeatherApp.Data.ApplicationUser", "ApplicationUser")
-                        .WithOne("Location")
-                        .HasForeignKey("WeatherApp.Data.Location", "UserId");
-
-                    b.Navigation("ApplicationUser");
-                });
-
             modelBuilder.Entity("WeatherApp.Data.ApplicationUser", b =>
                 {
+                    b.HasOne("WeatherApp.Data.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationId");
+
                     b.Navigation("Location");
                 });
 #pragma warning restore 612, 618

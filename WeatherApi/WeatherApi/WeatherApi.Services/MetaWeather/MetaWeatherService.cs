@@ -17,11 +17,11 @@ namespace WeatherApi.Services.MetaWeather
             _apiUrl = apiUrl;
         }
 
-        public async Task<Forecast> GetWeatherAsync()
+        public async Task<Forecast> GetWeatherAsync(int location)
         {
             using var httpClient = new HttpClient();
             
-            var response = await httpClient.GetAsync(_apiUrl);
+            var response = await httpClient.GetAsync(_apiUrl + location);
 
             var content =  await response.Content.ReadAsStringAsync();
 

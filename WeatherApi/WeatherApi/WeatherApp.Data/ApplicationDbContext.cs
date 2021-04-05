@@ -10,6 +10,7 @@ namespace WeatherApp.Data
         {
         }
 
+        public DbSet<Location> Locations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
