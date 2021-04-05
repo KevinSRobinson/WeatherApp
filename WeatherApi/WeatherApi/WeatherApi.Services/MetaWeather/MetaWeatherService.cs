@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http;
-using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using WeatherApi.Services.Interfaces;
 using WeatherApi.Services.MetaWeather.Models;
 using WeatherApi.Services.Models;
 

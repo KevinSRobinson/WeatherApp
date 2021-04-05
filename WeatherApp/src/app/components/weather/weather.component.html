@@ -1,8 +1,60 @@
-<div class="container" *ngIf="fiveDayForcast">
+ <!-- <div class="container" >
+
   <div class="row align-items-start">
-    <div *ngFor="let day of fiveDayForcast.dailyForecasts">
+    <div class="card">
+      <div class="card-header">Cuurent Time</div>
+      <div class="card-body">
+        <p class="card-text">
+          <div>Sun Rise : {{today.sunRise | date:'shortTime'}}</div>
+          <div>Sun Set : {{today.sunSet | date:'shortTime'}}</div>
+        </p>
+      </div>
+    </div>
+
+    
+  </div>
+ 
+</div>  -->
+
+
+<div class="container section">
+  <div class="row">
+      <div class="col-md-2">
+        <div class="card bg-light mb-3 float-left" >
+          <div class="card-header">Today  {{ today.applicableDate | date: "EEE MMM d, y" }}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ today.weatherStateName }}</h5>
+            <app-weather-state [state]="today.weatherStateAbbr"></app-weather-state>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10">
+          <img src="assets/images/belfast.jpg" alt="Responsive image" class="img-fluid">
+      </div>
+  </div>
+  
+</div>
+<!-- <div class="container">
+
+  <div class="card bg-light mb-3 float-left" style="max-width: 18rem;">
+    <div class="card-header">Today  {{ today.applicableDate | date: "EEE MMM d, y" }}</div>
+    <div class="card-body">
+      <h5 class="card-title">{{ today.weatherStateName }}</h5>
+      <app-weather-state [state]="today.weatherStateAbbr"></app-weather-state>
+    </div>
+  </div>
+  
+  <img src="assets/images/belfast.jpg" class="img-fluid" alt="Responsive image">
+
+
+</div> -->
+
+<div class="row" *ngIf="fiveDayForcast">
+  <div class="card-group">
+    <div class="card col-md-4" *ngFor="let day of fiveDayForcast.dailyForecasts">
       <app-weather-detail [detail]="day"> </app-weather-detail>
     </div>
   </div>
-  <ngx-spinner></ngx-spinner>
 </div>
+
+<ngx-spinner></ngx-spinner>

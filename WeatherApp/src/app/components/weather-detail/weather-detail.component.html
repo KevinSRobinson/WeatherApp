@@ -1,13 +1,28 @@
-
-
-
-
-<div class="card" style="width: 18rem;">
+<!-- <div class="card weather-card">
     <app-weather-state [state]="detail.weatherStateAbbr"></app-weather-state>
     <div class="card-body">
       <p class="card-text">{{detail.weatherStateName}}</p>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{detail.applicableDate | date:'mediumDate'}}</li>
-      </ul>
+        <li class="list-group-item">{{detail.applicableDate | date:'EEEE MMM d, y'}}</li>
+    </ul>
+  </div> -->
+<!-- 
+<div class="card">
+  <app-weather-state [state]="detail.weatherStateAbbr"></app-weather-state>
+  <div class="card-header">{{ detail.weatherStateName }}</div>
+  <div class="card-body">
+    <p class="card-text">
+      {{ detail.applicableDate | date: "EEE MMM d, y" }}
+    </p>
   </div>
+</div> -->
+
+
+<div class="card text-white bg-primary mb-3 float-left" >
+  <div class="card-header">Today  {{ detail.applicableDate | date: "EEE MMM d, y" }}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{ detail.weatherStateName }}</h5>
+    <app-weather-state [state]="detail.weatherStateAbbr"></app-weather-state>
+  </div>
+</div>

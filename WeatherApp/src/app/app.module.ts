@@ -18,6 +18,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './auth/auth.guard';
+import { ToastrModule } from 'ngx-toastr';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -55,7 +56,8 @@ export const INIT_API_CONFIGURATION: Provider = {
     FormsModule,
     ReactiveFormsModule,
     AlertModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ToastrModule.forRoot(), 
   ],
   providers: [
     AuthGuard ,

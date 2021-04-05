@@ -4,3 +4,18 @@
 .bg-light{
     background-color: red !important;
 }
+
+@import '~ngx-toastr/toastr';
+
+body{
+    background-color: #f4f4f4;
+    color: #d00030;
+}
+
+.bg-primary  {
+    background-color: lightslategrey; 
+    opacity: 50%;
+}
+.btn-success:hover {
+    background-color: #e07f95;
+}

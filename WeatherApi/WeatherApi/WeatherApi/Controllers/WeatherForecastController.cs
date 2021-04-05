@@ -4,9 +4,7 @@ using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using WeatherApi.Services;
-using WeatherApi.Services.MetaWeather;
-using WeatherApi.Services.MetaWeather.Models;
+using WeatherApi.Services.Interfaces;
 using WeatherApi.Services.Models;
 
 namespace WeatherApi.Controllers
@@ -16,7 +14,7 @@ namespace WeatherApi.Controllers
 
     [Route("api/WeatherForecast")]
     public class WeatherForecastController : ControllerBase
-    {
+    { 
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IWeatherService _weatherService;
