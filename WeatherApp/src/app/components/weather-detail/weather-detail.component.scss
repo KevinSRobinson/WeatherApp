@@ -5,11 +5,19 @@
 .weather-card {
    width: 18rem;
 }
-
+.card{
+    margin-left: 25px;
+    margin-right: 25px;
+}
 .card-body {
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1.25rem;
     background: white;
     color: red;
+}
+
+.bg-primary {
+    background: #d00030 !important;
+    opacity: 80%;
 }

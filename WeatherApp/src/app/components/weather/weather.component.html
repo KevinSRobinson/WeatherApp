@@ -1,7 +1,9 @@
-<div *ngIf="fiveDayForcast">
+<div class="weather-container" *ngIf="fiveDayForcast">
+  <h1>{{ fiveDayForcast.title }}</h1>
+  
   <div class="card bg-dark todays-card">
     <div class="card-header todays-card-header">
-      Weather for {{ fiveDayForcast.title }}
+      Today {{fiveDayForcast.time | date: "EEE MMM d" }}
     </div>
     <div class="card-body">
       <div class="row">
