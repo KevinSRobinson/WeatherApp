@@ -20,7 +20,7 @@
 
 
 <div class="card text-white bg-primary mb-3 float-left" >
-  <div class="card-header">{{ detail.applicableDate | date: "EEE MMM d, y" }}</div>
+  <div class="card-header">{{ detail.applicableDate | date: "EEE MMM d" }}</div>
   <div class="card-body">
     <h5 class="card-title">{{ detail.weatherStateName }}</h5>
     <app-weather-state [state]="detail.weatherStateAbbr"></app-weather-state>
