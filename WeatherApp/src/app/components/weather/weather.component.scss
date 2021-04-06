@@ -1,3 +1,11 @@
+
+
+.todays-card-header{
+  background-color:lightgray !important;
+}
+.todays-weather-state{
+  margin-right: 40px;
+}
 .today {
   margin-left: 20px;
 }
@@ -20,4 +28,35 @@
 }
 .card-body {
     background: white;
+}
+.weather-card {
+  width: 18rem;
+}
+
+.todays-card{
+  margin: 30px;
+}
+
+.five-day-forecast{
+  margin: 40px;
+}
+
+// .field{
+//   width: 450px !important;
+// }
+// .field-label {
+//   font-weight: bold;
+//   min-width: 170px !important;
+// }
+// .field-value {
+//   color: black;
+// }
+
+.col-form-label{
+  padding: 0;
+  color: black;
+  font-weight: bold;
+}
+.col-form-value{
+  color: red;
 }

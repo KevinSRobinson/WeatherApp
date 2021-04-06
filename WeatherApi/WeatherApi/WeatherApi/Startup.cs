@@ -44,6 +44,7 @@ namespace WeatherApi
 
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
+            services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

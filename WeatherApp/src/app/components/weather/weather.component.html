@@ -1,82 +1,124 @@
- <!-- <div class="container" >
-
-  <div class="row align-items-start">
-    <div class="card">
-      <div class="card-header">Cuurent Time</div>
-      <div class="card-body">
-        <p class="card-text">
-          <div>Sun Rise : {{today.sunRise | date:'shortTime'}}</div>
-          <div>Sun Set : {{today.sunSet | date:'shortTime'}}</div>
-        </p>
-      </div>
+<div *ngIf="fiveDayForcast">
+  <div class="card bg-dark todays-card">
+    <div class="card-header todays-card-header">
+      Weather for {{ fiveDayForcast.title }}
     </div>
-
-    
-  </div>
- 
-</div>  -->
-
-
-<div class="container section">
-  <h1>Weather for {{fiveDayForcast.title}}</h1>
-  <!-- <div class="row">
-      <div class="col-md-2">
-        <div class="card bg-light mb-3 float-left" >
-          <div class="card-header">Today</div>
-          <div class="card-body">
-            <h5 class="card-title">{{ today.weatherStateName }}</h5>
-            <app-weather-state [state]="today.weatherStateAbbr"></app-weather-state>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-10">
-          <img src="assets/images/belfast.jpg" alt="Responsive image" class="img-fluid">
-      </div>
-  </div> -->
-  
-</div>
-
-
-
-<section class="section mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7">
-        <div>
-          <img alt="Web Studio" class="img-fluid" src="assets/images/belfast.jpg">
-        </div>
-      </div>
-      <div class="today col-md-5 col-lg-5 ml-auto d-flex align-items-center mt-4 mt-md-0">
-        <div class="card bg-light mb-3 float-left" >
-          <div class="card-header">Today </div>
-          <div class="card-body">
-            <h5 class="card-title">{{ today.weatherStateName }}</h5>
-            <app-weather-state [state]="today.weatherStateAbbr"></app-weather-state>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- <div class="container">
-
-  <div class="card bg-light mb-3 float-left" style="max-width: 18rem;">
-    <div class="card-header">Today  {{ today.applicableDate | date: "EEE MMM d, y" }}</div>
     <div class="card-body">
-      <h5 class="card-title">{{ today.weatherStateName }}</h5>
-      <app-weather-state [state]="today.weatherStateAbbr"></app-weather-state>
+      <div class="row">
+        <div class="todays-weather-state col-sm-12 col-md-2">
+          <h5 class="card-title">{{ today.weatherStateName }}</h5>
+          <app-weather-state
+            [state]="today.weatherStateAbbr"
+          ></app-weather-state>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-6 col-form-label"
+              >Min Temp</label
+            >
+            <div class="col-sm-10">
+              <label for="staticEmail" class="col-sm-6 col-form-value">{{
+                today.minTemp | number: "1.2-2"
+              }}</label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-6 col-form-label"
+              >Max Temp
+            </label>
+            <div class="col-sm-10">
+              <label for="staticEmail" class="col-sm-6 col-form-value">{{
+                today.maxTemp | number: "1.2-2"
+              }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-6 col-form-label"
+              >WindSpeed</label
+            >
+            <div class="col-sm-10">
+              <label for="staticEmail" class="col-sm-6 col-form-value"
+                >{{ today.windSpeed | number: "1.2-2" }} Mph</label
+              >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-6 col-form-label"
+              >Wind Direction</label
+            >
+            <div class="col-sm-10">
+              <label for="staticEmail" class="col-sm-6 col-form-value">{{
+                today.windDirectionCompass
+              }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-6 col-form-label"
+              >Humidity</label
+            >
+            <div class="col-sm-10">
+              <label for="staticEmail" class="col-sm-6 col-form-value">{{
+                today.humidity
+              }}</label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-6 col-form-label"
+              >Air Pressure</label
+            >
+            <div class="col-sm-10">
+              <label for="staticEmail" class="col-sm-6 col-form-value">{{
+                today.airPressure | number: "1.2-2"
+              }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-sm-12 col-md-2">
+          <div>
+            <span class="field-label">Min Temp :</span>
+            <span class="field-value">{{ today.minTemp | number : '1.2-2'}}</span>
+          </div>
+          <div>
+            <span class="field-label">Max Temp :</span>
+            <span class="field-value">{{ today.maxTemp | number : '1.2-2'}}</span>
+          </div>
+          <div>
+            <span class="field-label">Temp :</span>
+            <span class="field-value">{{ today.theTemp | number : '1.2-2'}}</span>
+          </div>
+      </div> -->
+
+      <!-- <div class="col-sm-12 col-md-2">
+        <div>
+          <span class="field-label">Air Pressure :</span>
+          <span class="field-value"> {{ today.airPressure | number : '1.2-2'}}</span>
+        </div>
+        <div>
+          <span class="field-label">Humidity :</span>
+          <span class="field-value">{{ today.humidity }}</span>
+        </div>
+          <div>
+          <span class="field-label">Visibility :</span>
+          <span class="field-value">{{ today.visibility | number : '1.2-2'}}</span>
+        </div>
+      </div> -->
     </div>
   </div>
-  
-  <img src="assets/images/belfast.jpg" class="img-fluid" alt="Responsive image">
 
-
-</div> -->
-
-<div  *ngIf="fiveDayForcast">
-  <div class="card-group">
-    <div  *ngFor="let day of fiveDayForcast.dailyForecasts">
-      <app-weather-detail [detail]="day"> </app-weather-detail>
+  <div class="five-day-forecast">
+    <div *ngIf="fiveDayForcast">
+      <div class="card-group">
+        <div *ngFor="let day of fiveDayForcast.dailyForecasts">
+          <app-weather-detail [detail]="day"> </app-weather-detail>
+        </div>
+      </div>
     </div>
   </div>
 </div>

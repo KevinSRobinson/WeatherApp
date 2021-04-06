@@ -37,7 +37,7 @@ namespace WeatherApi.Controllers
         [HttpPost, ProducesResponseType(typeof(Forecast), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetWeather()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // will give the user's userId
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); 
             
             var location = await _locationRepository.GetLocationByUserId(userId);
 

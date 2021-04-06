@@ -2,9 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>c76ec42e-4684-468f-8d14-73e37ef77d85</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/7818cbd2-8cfa-4ecb-9d97-bfd02f573ec4/resourceGroups/RG-weather-app/providers/microsoft.insights/components/weatherapp-api</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
       <PrivateAssets>all</PrivateAssets>
