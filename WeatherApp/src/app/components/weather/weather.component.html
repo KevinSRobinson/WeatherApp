@@ -79,45 +79,15 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="col-sm-12 col-md-2">
-          <div>
-            <span class="field-label">Min Temp :</span>
-            <span class="field-value">{{ today.minTemp | number : '1.2-2'}}</span>
-          </div>
-          <div>
-            <span class="field-label">Max Temp :</span>
-            <span class="field-value">{{ today.maxTemp | number : '1.2-2'}}</span>
-          </div>
-          <div>
-            <span class="field-label">Temp :</span>
-            <span class="field-value">{{ today.theTemp | number : '1.2-2'}}</span>
-          </div>
-      </div> -->
-
-      <!-- <div class="col-sm-12 col-md-2">
-        <div>
-          <span class="field-label">Air Pressure :</span>
-          <span class="field-value"> {{ today.airPressure | number : '1.2-2'}}</span>
-        </div>
-        <div>
-          <span class="field-label">Humidity :</span>
-          <span class="field-value">{{ today.humidity }}</span>
-        </div>
-          <div>
-          <span class="field-label">Visibility :</span>
-          <span class="field-value">{{ today.visibility | number : '1.2-2'}}</span>
-        </div>
-      </div> -->
     </div>
   </div>
 
   <div class="five-day-forecast">
-      <div class="card-group">
-        <div *ngFor="let day of fiveDayForcast.dailyForecasts">
-          <app-weather-detail [detail]="day"> </app-weather-detail>
-        </div>
+    <div class="card-group">
+      <div *ngFor="let day of fiveDayForcast.dailyForecasts">
+        <app-weather-detail [detail]="day"> </app-weather-detail>
       </div>
+    </div>
   </div>
 </div>
 

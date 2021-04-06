@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using WeatherApp.Data.Models;
 
-namespace WeatherApp.Data
+namespace WeatherApp.Data.Repositories
 {
     public interface ILocationRepository
     {

@@ -4,10 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { WeatherDetailComponent } from './components/weather-detail/weather-detail.component';
-import { WeatherStateComponent } from './components/weather-state/weather-state.component';
 import { HomeComponent } from './components/home/home.component';
-import { WeatherComponent } from './components/weather/weather.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './token.interceptor';
@@ -19,6 +16,9 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './auth/auth.guard';
 import { ToastrModule } from 'ngx-toastr';
+import { WeatherComponent } from './components/weather/weather.component';
+import { WeatherDetailComponent } from './components/weather-detail/weather-detail.component';
+import { WeatherStateComponent } from './components/weather-state/weather-state.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');

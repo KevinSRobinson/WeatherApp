@@ -1,20 +1,18 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Net.Mime;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using WeatherApi.Models;
 using WeatherApp.Data;
+using WeatherApp.Data.Models;
 
 namespace WeatherApi.Controllers
 {
@@ -22,8 +20,8 @@ namespace WeatherApi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _config;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public AuthController(UserManager<ApplicationUser> userManager, IConfiguration config)
         {
@@ -45,7 +43,7 @@ namespace WeatherApi.Controllers
                     .FirstOrDefaultAsync(u => u.NormalizedUserName == user.UserName.ToUpper());
 
                 var token = GenerateJwtToken(appUser);
-             
+
                 return Ok(new
                 {
                     token,
@@ -60,15 +58,12 @@ namespace WeatherApi.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Register([FromBody] RegisterModelIn registerModelIn)
         {
-            var userToCreate = new ApplicationUser()
+            var userToCreate = new ApplicationUser
             {
                 UserName = registerModelIn.Username
             };
 
             var result = await _userManager.CreateAsync(userToCreate, registerModelIn.Password);
-
-            //var userToReturn = _mapper.Map<UserForDetailsDto>(userToCreate);
-          
 
             if (result.Succeeded)
                 return Ok();
@@ -83,7 +78,7 @@ namespace WeatherApi.Controllers
         {
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Name, user.UserName)
             };
 
@@ -111,4 +106,3 @@ namespace WeatherApi.Controllers
         #endregion
     }
 }
-

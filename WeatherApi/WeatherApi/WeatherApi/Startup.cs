@@ -9,6 +9,7 @@ using WeatherApi.Extensions;
 using WeatherApi.Services.Interfaces;
 using WeatherApi.Services.MetaWeather;
 using WeatherApp.Data;
+using WeatherApp.Data.Repositories;
 
 namespace WeatherApi
 {
@@ -21,7 +22,6 @@ namespace WeatherApi
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureCors();

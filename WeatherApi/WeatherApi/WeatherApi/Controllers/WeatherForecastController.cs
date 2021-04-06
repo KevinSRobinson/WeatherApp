@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using WeatherApi.Services.Interfaces;
 using WeatherApi.Services.Models;
 using WeatherApp.Data;
+using WeatherApp.Data.Models;
+using WeatherApp.Data.Repositories;
 
 namespace WeatherApi.Controllers
 {
