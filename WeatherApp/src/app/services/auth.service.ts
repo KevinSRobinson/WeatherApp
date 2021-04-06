@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class AuthService {
   baseUrl = 'https://weatherapp-api.azurewebsites.net/api' + '/auth/';
   jwtHelper = new JwtHelperService();

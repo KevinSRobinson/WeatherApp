@@ -113,13 +113,11 @@
   </div>
 
   <div class="five-day-forecast">
-    <div *ngIf="fiveDayForcast">
       <div class="card-group">
         <div *ngFor="let day of fiveDayForcast.dailyForecasts">
           <app-weather-detail [detail]="day"> </app-weather-detail>
         </div>
       </div>
-    </div>
   </div>
 </div>
 

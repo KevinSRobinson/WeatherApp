@@ -1,5 +1,4 @@
 {
-    "api_url": "https://localhost:44337",
+    "api_url": "https://weatherapp-api.azurewebsites.net",
     "version": "local"
   }
-  

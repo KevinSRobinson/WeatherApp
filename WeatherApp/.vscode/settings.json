@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/7818cbd2-8cfa-4ecb-9d97-bfd02f573ec4/resourceGroups/RG-weather-app/providers/Microsoft.Web/sites/weatherapp-web",
+    "appService.deploySubpath": "dist\\WeatherApp"
+}
